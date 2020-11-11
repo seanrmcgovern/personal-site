@@ -1,0 +1,44 @@
+html {
+  background-color: #f3e9d2;
+  /*background-color: #aa7dce;*/
+  /* background-color: #00509d; */
+  /*mint C5DED7 */
+}
+
+/* a:before,
+a:after {
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  content: "";
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+
+a:before {
+  right: 0;
+  top: 0;
+  border-right: 3px solid cyan;
+  border-top: 3px solid cyan;
+  transform: translate(-100%, 50%);
+}
+
+a:after {
+  left: 0;
+  bottom: 0;
+  border-left: 3px solid cyan;
+  border-bottom: 3px solid cyan;
+  transform: translate(100%, -50%);
+}
+
+a:hover::before,
+a:hover::after {
+  transform: translate(0%, 0%);
+  opacity: 1;
+} */
+
+/* dark blue: #00296b
+mid blue: #003f88
+light blue: #00509d
+yellow: #ffd500
+gold: #fdc500 */
