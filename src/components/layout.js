@@ -19,8 +19,14 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
     navbar: {
-        backgroundColor: "#f3e9d2",
+        backgroundColor: "#ced3dc",
         boxShadow: "none"
+    },
+    header: {
+      color: "#514689",
+      display: 'inline-block',
+      margin: '0 0.5rem',
+      padding: '0.25rem',
     },
     linkStyles: {
         color: 'white',
@@ -29,9 +35,44 @@ const useStyles = makeStyles((theme) => ({
         padding: '0.25rem',
     },
     activeLink: {
-        // backgroundColor: 'blue',
-        color: '#3b429f',
+        color: "#514689",
         textDecoration: 'none',
+    },
+    hoverLink: {
+        '&::before': {
+            height: '14px',
+            width: '14px',
+            position: 'absolute',
+            content: '""',
+            transition: 'all 0.35s ease',
+            opacity: 0,
+            right: 0,
+            top: 0,
+            borderRight: '3px solid cyan',
+            borderTop: '3px solid cyan',
+            transform: 'translate(-100%, 50%)',
+        },
+        '&::after': {
+            height: '14px',
+            width: '14px',
+            position: 'absolute',
+            content: '""',
+            transition: 'all 0.35s ease',
+            opacity: 0,
+            left: 0,
+            bottom: 0,
+            borderLeft: '3px solid cyan',
+            borderBottom: '3px solid cyan',
+            transform: 'translate(100%, -50%)'
+        },
+        '&:hover::before': {
+            transform: 'translate(0%, 0%)',
+            opacity: 1,
+        },
+        '&:hover::after': {
+            transform: 'translate(0%, 0%)',
+            opacity: 1,
+        }
     },
     grow: {
       flexGrow: 1,
@@ -167,16 +208,16 @@ export default function Layout({ children }) {
     <div>
         <AppBar position="static" className={classes.navbar}>
         <Toolbar>
-            <Link to="/" className={classes.linkStyles} >
-                Sean McGovern
+            <Link to="/" className={classes.header} >
+                <div className={classes.hoverLink}>Sean McGovern</div>
             </Link>
           <div className={classes.grow} />
           <div>
             <Link to="/" className={classes.linkStyles} activeClassName={classes.activeLink}>
                 Home
             </Link>
-            <Link to="/about" className={classes.linkStyles} activeClassName={classes.activeLink}>
-                About
+            <Link to="/experience" className={classes.linkStyles} activeClassName={classes.activeLink}>
+                Experience
             </Link>
             <Link to="/contact" className={classes.linkStyles} activeClassName={classes.activeLink}>
                 Contact

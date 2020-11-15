@@ -9,15 +9,15 @@ const useStyles = makeStyles((theme) => ({
     
 }));
 
-export default function Experience() {
+export default function ExperienceTimeline() {
     const classes = useStyles();
 
     return (
-          <VerticalTimeline className={classes.timeline}>
-              {TimelineEvents.map((event) => <TimelineElement position={event.position} location={event.location} date={event.date} description={event.description} icon={event.icon}/>)}
-              <VerticalTimelineElement
-                  iconStyle={{ background: '#aa7dce', color: '#fff' }}
-              />
+        <VerticalTimeline>
+            {TimelineEvents.map((event) => <TimelineElement position={event.position} location={event.location} date={event.date} description={event.description} icon={event.icon} skills={event.skills}/>)}
+            <VerticalTimelineElement
+                iconStyle={{ background: '#a7a4e0', color: '#fff' }}
+            />
           </VerticalTimeline>
     )
   }
