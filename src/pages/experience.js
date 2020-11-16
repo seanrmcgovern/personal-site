@@ -9,7 +9,6 @@ export default function Experience() {
     <Layout>
         <div style={{ margin: `3rem auto`, padding: `0 1rem`, textAlign: "center" }}>
             <h1 style={{color: "#282A36"}}>Experience and Education</h1>
-            {/* 282A36 */}
         </div>
         <ExperienceTimeline/>
     </Layout>

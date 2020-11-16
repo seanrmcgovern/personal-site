@@ -3,12 +3,10 @@ import { Link } from "gatsby"
 import Header from "../components/header"
 import Layout from "../components/layout"
 
-export default function Contact() {
+export default function Projects() {
   return (
     <Layout>
-      <Link to="/">Home</Link>
-      <Header headerText="Contact" />
-      <p>Send us a message!</p>
+      <Header headerText="Projects Here" />
     </Layout>
   )
 }

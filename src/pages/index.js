@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <Layout>
       <Header headerText="Hello Gatsby!" />
-      
-      <div style={{height: "2000px"}}></div>
+      <Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" /><Header headerText="Hello Gatsby!" />
+      {/* <div style={{height: "2000px"}}></div> */}
     </Layout>
   )
 }

@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
+import clsx from 'clsx';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,6 +12,10 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Zoom from '@material-ui/core/Zoom';
+import Fab from '@material-ui/core/Fab';
+import { FaGithub, FaLinkedin } from "react-icons/fa"
+
 
 // const ListLink = props => (
 //     <Link to={props.to}>{props.children}</Link>
@@ -20,23 +24,45 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles((theme) => ({
     navbar: {
         backgroundColor: "#ced3dc",
-        boxShadow: "none"
+        boxShadow: "none",
     },
     header: {
       color: "#514689",
       display: 'inline-block',
       margin: '0 0.5rem',
       padding: '0.25rem',
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
+      },
+    },
+    navItems: {
+      [theme.breakpoints.down('sm')]: {
+        display: "flex",
+        margin: "0 auto"
+      },
     },
     linkStyles: {
-        color: 'white',
+        color: "#514689",
         display: 'inline-block',
         margin: '0 0.5rem',
         padding: '0.25rem',
     },
     activeLink: {
-        color: "#514689",
+        color: "#ced3dc",
         textDecoration: 'none',
+        backgroundColor: "#514689",
+        borderRadius: 20,
+        padding: "1vh 1vw"
+    },
+    fab1: {
+      position: "fixed",
+      bottom: theme.spacing(2),
+      right: theme.spacing(2),
+    },
+    fab2: {
+      position: "fixed",
+      bottom: theme.spacing(10),
+      right: theme.spacing(2),
     },
     hoverLink: {
         '&::before': {
@@ -76,6 +102,9 @@ const useStyles = makeStyles((theme) => ({
     },
     grow: {
       flexGrow: 1,
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
+      },
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -139,6 +168,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Layout({ children }) {
   const classes = useStyles();
+  const theme = useTheme();
+
+  const transitionDuration = {
+    enter: theme.transitions.duration.enteringScreen,
+    exit: theme.transitions.duration.leavingScreen,
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -205,22 +241,22 @@ export default function Layout({ children }) {
   );
 
   return (
-    <div>
+    <div >
         <AppBar position="static" className={classes.navbar}>
         <Toolbar>
             <Link to="/" className={classes.header} >
-                <div className={classes.hoverLink}>Sean McGovern</div>
+                Sean McGovern
             </Link>
           <div className={classes.grow} />
-          <div>
+          <div className={classes.navItems}>
             <Link to="/" className={classes.linkStyles} activeClassName={classes.activeLink}>
                 Home
             </Link>
             <Link to="/experience" className={classes.linkStyles} activeClassName={classes.activeLink}>
                 Experience
             </Link>
-            <Link to="/contact" className={classes.linkStyles} activeClassName={classes.activeLink}>
-                Contact
+            <Link to="/projects" className={classes.linkStyles} activeClassName={classes.activeLink}>
+                Projects
             </Link>
           </div>
           {/* <div className={classes.sectionMobile}>
@@ -239,6 +275,34 @@ export default function Layout({ children }) {
       {/* {renderMobileMenu} */}
       {renderMenu}
       {children}
+        <a href="https://github.com/seanrmcgovern">
+          <Zoom
+            in={true}
+            timeout={transitionDuration}
+            style={{
+              transitionDelay: `${transitionDuration.exit}ms`,
+            }}
+            unmountOnExit
+          >
+            <Fab aria-label={"GitHub"} className={classes.fab1}>
+              <FaGithub size="small" color={"#514689"}/>
+            </Fab>
+          </Zoom>
+        </a>
+        <a href="https://www.linkedin.com/in/seanrmcgovern/">
+          <Zoom
+            in={true}
+            timeout={transitionDuration}
+            style={{
+              transitionDelay: `${transitionDuration.exit}ms`,
+            }}
+            unmountOnExit
+          >
+            <Fab aria-label={"LinkedIn"} className={classes.fab2}>
+                <FaLinkedin size="small" color={"#514689"} />
+            </Fab>
+          </Zoom>
+        </a>
     </div>
   )
 }
